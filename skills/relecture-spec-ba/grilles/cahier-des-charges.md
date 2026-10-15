@@ -31,7 +31,7 @@ Un élément est **partiel** si, par exemple, les inclusions sont listées mais 
 | CDC-C1 | Les exclusions de périmètre sont explicites. | Majeur |
 | CDC-C2 | Chaque objectif a un indicateur et une cible (« réduire les appels de 30 % en 12 mois »). | Majeur |
 | CDC-C3 | Les parties prenantes et leurs rôles sont identifiés, dont qui valide. | Majeur |
-| CDC-C4 | Le budget et le calendrier sont indiqués. | **Bloquant** dans un appel d'offres ou avant validation budgétaire ; sinon Majeur (conditionnel si le contexte est inconnu) |
+| CDC-C4 | Le budget et le calendrier sont indiqués. | **Bloquant** dans un appel d'offres, une consultation de prestataires ou toute mise en concurrence, ou avant validation budgétaire ; sinon Majeur (conditionnel si le contexte est inconnu) |
 
 ### Exigences
 | ID | Point de contrôle | Sévérité par défaut |
@@ -41,6 +41,7 @@ Un élément est **partiel** si, par exemple, les inclusions sont listées mais 
 | CDC-E3 | Chaque exigence est vérifiable à la livraison (pas « interface conviviale »). | Majeur par exigence ; Bloquant si la majorité ne l'est pas |
 | CDC-E4 | Les exigences se rattachent aux objectifs. | Mineur |
 | CDC-E5 | Les intégrations avec les systèmes existants sont listées (quels systèmes, quels échanges). | Majeur |
+| CDC-E6 | Chaque élément inclus dans le périmètre est couvert par au moins une exigence. | Majeur (Bloquant si l'élément est un processus central du projet) |
 
 ### Exigences non fonctionnelles et données
 | ID | Point de contrôle | Sévérité par défaut |
@@ -57,7 +58,7 @@ Un élément est **partiel** si, par exemple, les inclusions sont listées mais 
 | CDC-G1 | Les critères de recette du projet sont définis. | Majeur |
 | CDC-G2 | Les principaux risques sont identifiés, avec une mesure de mitigation. | Mineur |
 | CDC-G3 | Le processus de gestion des changements de périmètre est indiqué. | Mineur |
-| CDC-G4 | Les livrables attendus sont listés (documentation, formation, réversibilité). | Mineur (Majeur en appel d'offres) |
+| CDC-G4 | Les livrables attendus sont listés (documentation, formation, réversibilité). | Mineur (Majeur en appel d'offres ou consultation de prestataires) |
 
 ## Contradictions fréquentes à vérifier
 
