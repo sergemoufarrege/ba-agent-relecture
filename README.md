@@ -17,6 +17,12 @@ Joignez un document et demandez simplement « relis cette spec ». Le plugin :
 
 Le rapport est livré sous forme de document. Si vous fournissez un fichier Word et le demandez, les constats peuvent être ajoutés en commentaires dans une copie du fichier.
 
+## Installation
+
+- **Dans l'app Claude** : ajoutez le plugin depuis le répertoire des plugins, en cherchant « BA Agent ».
+- **Skill seule** : zippez le dossier `skills/relecture-spec-ba` et importez-le dans les paramètres de l'app, section skills.
+- **Claude Code** : clonez ce dépôt et lancez `claude --plugin-dir ./ba-agent-relecture`.
+
 ## Adapter à votre organisation
 
 - `skills/relecture-spec-ba/fiche-projet-modele.md` : le contexte d'un projet (glossaire, acteurs, systèmes, décisions), pour ne pas le redonner à chaque relecture.
