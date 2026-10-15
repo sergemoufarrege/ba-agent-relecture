@@ -1,7 +1,7 @@
 {
   "name": "ba-agent-relecture",
   "displayName": "BA Agent — Relecture de specs",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Relit vos user stories, spécifications fonctionnelles, use cases et cahiers des charges avant remise : constats sourcés, verdict reproductible et questions à poser au métier.",
   "author": {
     "name": "Serge Moufarrege"
