@@ -1,0 +1,9 @@
+{
+  "name": "ba-agent-relecture",
+  "displayName": "BA Agent — Relecture de specs",
+  "version": "1.0.0",
+  "description": "Relit vos user stories, spécifications fonctionnelles, use cases et cahiers des charges avant remise : constats sourcés, verdict reproductible et questions à poser au métier.",
+  "author": { "name": "Serge Moufarrege" },
+  "license": "CC-BY-NC-SA-4.0",
+  "keywords": ["business-analysis", "specification", "user-story", "cahier-des-charges", "revue-qualite"]
+}
