@@ -36,6 +36,8 @@ Le dossier `evals/` contient trois documents avec des défauts volontairement pl
 
 Le plugin ne contient que des instructions et des grilles en texte. Il n'exécute aucun script, n'appelle aucun service externe et n'envoie aucune donnée ailleurs que dans votre conversation avec Claude. Les points réglementaires sont un aide-mémoire et ne constituent pas un avis juridique.
 
+**Privacy / Confidentialité :** [politique de confidentialité](https://github.com/sergemoufarrege/ba-agent-relecture/blob/main/PRIVACY.md)
+
 ## Licence
 
 Creative Commons BY-NC-SA 4.0 : utilisation, adaptation et partage libres à des fins non commerciales, avec attribution et partage dans les mêmes conditions. Pour un usage commercial, une adaptation à votre organisation ou un accompagnement, contactez l'auteur.
