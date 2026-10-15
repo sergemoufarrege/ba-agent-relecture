@@ -72,7 +72,7 @@ Classe les constats en quatre catégories : **Manques**, **Contradictions**, **A
 - **À clarifier** si 1 ou 2 constats bloquants, OU plus de 3 constats majeurs.
 - **Prêt** sinon.
 
-Indique aussi le décompte des constats certains : « X bloquants, Y majeurs, Z mineurs ». Ne produis pas de note sur 100 ni de pourcentage de couverture.
+Indique aussi le décompte des constats certains : « X bloquants, Y majeurs, Z mineurs » (les mineurs regroupés en fin de tableau comptent dans le décompte). Ne produis pas de note sur 100 ni de pourcentage de couverture.
 
 Les constats conditionnels n'entrent pas dans le calcul du verdict. Signale simplement si le verdict changerait selon l'hypothèse.
 
