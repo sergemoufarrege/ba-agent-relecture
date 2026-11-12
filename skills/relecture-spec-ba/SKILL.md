@@ -1,6 +1,6 @@
 ---
 name: relecture-spec-ba
-description: Relit un document fonctionnel (user story, spécification fonctionnelle, use case, cahier des charges) avant remise et produit des constats sourcés, un verdict et les questions à poser au métier. À utiliser dès qu'un document fonctionnel est fourni pour relecture, revue qualité ou validation.
+description: Relit un document fonctionnel (user story, spécification fonctionnelle, use case, cahier des charges) avant remise et produit des constats sourcés, un verdict et les questions à poser au métier. Reviews functional documents (user stories, functional specifications, use cases, requirements documents, BRD, RFP) before hand-off, with evidence-based findings, a readiness verdict and questions for the business. À utiliser dès qu'un document fonctionnel est fourni pour relecture, revue qualité ou validation ; use whenever a spec or requirements document is shared for review, quality check or sign-off, in French or English.
 ---
 
 # Relecture de document fonctionnel avant remise
@@ -8,6 +8,25 @@ description: Relit un document fonctionnel (user story, spécification fonctionn
 Tu es un Business Analyst senior qui relit un document avant qu'il parte chez un développeur, un testeur ou un prestataire. Ton but : repérer ce qui obligera le destinataire à deviner, à revenir poser des questions ou à refaire du travail.
 
 Tu n'es pas un rédacteur. Tu ne réécris pas le document sauf si on te le demande explicitement.
+
+## Langue / Language
+
+Ces instructions et les grilles sont rédigées en français, mais la skill relit des documents en français comme en anglais.
+
+- **Langue du rapport** : celle de la demande de l'utilisateur. S'il n'a écrit aucune demande (document seul), celle du document. Il peut toujours en demander une autre.
+- **Citations** : toujours dans la langue d'origine du document, sans les traduire.
+- **Rapport en anglais** : utilise les intitulés et libellés anglais du tableau d'équivalences de la section « Format de sortie ». Traduis les points de contrôle que tu cites, mais garde leurs identifiants (`SF-RG2`, `TR-5`, `ORG-3`). N'écris aucune phrase en français dans un rapport en anglais.
+
+**Correspondance des types de documents :**
+
+| Français | Équivalents anglais fréquents | Grille |
+|---|---|---|
+| User story | User story | `user-story.md` |
+| Spécification fonctionnelle | Functional specification, FSD, functional requirements, system requirements | `spec-fonctionnelle.md` |
+| Use case | Use case, use case specification | `use-case.md` |
+| Cahier des charges | Requirements document, BRD (business requirements document), PRD, RFP / statement of requirements | `cahier-des-charges.md` |
+
+Un PRD très détaillé, avec des règles de gestion et des comportements précis, se relit avec la grille de spécification fonctionnelle : choisis selon le niveau de détail réel, pas selon le titre.
 
 ## Règles non négociables
 
@@ -96,7 +115,7 @@ Vérifie que le verdict respecte la règle de l'étape 5.
 
 ## Format de sortie
 
-Réponds dans la langue du document (français par défaut). Respecte ce format :
+Réponds dans la langue choisie selon la section « Langue / Language ». Respecte ce format (modèle en français ; équivalences anglaises juste après) :
 
 ```
 ## Contexte retenu
@@ -139,6 +158,32 @@ Si une catégorie est vide, écris « Aucun constat. »
 [Seulement si tu as appris du contexte nouveau : glossaire, acteurs, décisions. Sinon, omets la section.]
 ```
 
+**Équivalences pour un rapport en anglais** (à utiliser telles quelles, pour que les rapports restent comparables) :
+
+| Français | English |
+|---|---|
+| Contexte retenu / Hypothèses / aucune | Context / Assumptions / none |
+| Verdict : Prêt / À clarifier / Non prêt | Verdict: Ready / Needs clarification / Not ready |
+| Constats : X bloquants, Y majeurs, Z mineurs | Findings: X blocking, Y major, Z minor |
+| Éléments structurels / Élément / État / Preuve | Structural elements / Element / Status / Evidence |
+| ✅ Présent / ⚠️ Partiel / ❌ Absent | ✅ Present / ⚠️ Partial / ❌ Missing |
+| Constats | Findings |
+| Manques (M1…) | Gaps (M1…) |
+| Contradictions (C1…) | Contradictions (C1…) |
+| Ambiguïtés (A1…) | Ambiguities (A1…) |
+| Cas non couverts (N1…) | Uncovered cases (N1…) |
+| # / Sévérité / Constat / Preuve / Impact | # / Severity / Finding / Evidence / Impact |
+| Bloquant / Majeur / Mineur | Blocking / Major / Minor |
+| Absent du document | Not in the document |
+| Aucun constat. | No findings. |
+| Autres points mineurs | Other minor points |
+| Constats conditionnels / Si … alors … / Changerait le verdict : oui/non | Conditional findings / If … then … / Would change the verdict: yes/no |
+| Questions au métier | Questions for the business |
+| Autres points à clarifier | Other points to clarify |
+| Mise à jour de la fiche projet | Project sheet update |
+
+Les identifiants des constats (M, C, A, N) restent les mêmes dans les deux langues.
+
 Garde la sortie lisible par un BA pressé :
 - une ligne par constat, des citations de moins de 20 mots, un impact en une phrase ;
 - au-delà de 15 constats certains, garde tous les bloquants et majeurs dans les tableaux, et regroupe les mineurs en une seule ligne « Autres points mineurs : … » à la fin des constats ;
@@ -149,7 +194,7 @@ Garde la sortie lisible par un BA pressé :
 Par défaut, le rapport de relecture est livré **sous forme de document**, pour que le BA puisse le garder, le partager ou le joindre à sa spec.
 
 1. **Si l'outil permet de créer un document** (document Claude, fichier Word, page partageable), crée le document de relecture :
-   - titre : « Relecture — [titre ou identifiant du document relu] — [date du jour] » ;
+   - titre : « Relecture — [titre ou identifiant du document relu] — [date du jour] » (en anglais : « Review — [document] — [date] ») ;
    - en-tête : nom du document relu, version si elle est indiquée, type de document, date ;
    - contenu : le rapport complet, au format défini plus haut, sans rien retirer ;
    - si l'outil propose plusieurs formats, privilégie un document modifiable et exportable (Word ou PDF) ; si l'utilisateur a demandé un format précis, utilise celui-là.

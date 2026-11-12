@@ -13,7 +13,7 @@ Ces points s'appliquent à tout document fonctionnel, en plus de la grille spéc
 | TR-7 | Chaque acteur ou système qui agit est identifié ; les phrases au passif ne cachent pas l'acteur (« la demande est validée » : par qui ?). | Majeur | Ambiguïtés |
 | TR-8 | Chaque système externe cité (API, ERP, partenaire) a son rôle précisé : ce qu'on lui envoie, ce qu'on en reçoit. | Majeur | Manques |
 | TR-9 | Le comportement en cas d'échec d'un système externe est précisé, si le document en dépend. | Majeur | Cas non couverts |
-| TR-10 | Le traitement des données personnelles est évoqué si le document en collecte ou en affiche (finalité, conservation, droits). | Majeur (Bloquant pour des données de santé ou sensibles) — conditionnel seulement si rien n'indique que l'organisation est dans l'UE | Manques |
+| TR-10 | Le traitement des données personnelles est évoqué si le document en collecte ou en affiche (finalité, conservation, droits). | Majeur (Bloquant pour des données de santé ou sensibles) — conditionnel seulement si rien n'indique que l'organisation est dans l'UE ou au Royaume-Uni (UK GDPR) | Manques |
 
 ## Comment appliquer
 

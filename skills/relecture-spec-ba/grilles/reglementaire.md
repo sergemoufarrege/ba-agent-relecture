@@ -7,6 +7,7 @@
 - Un manque réglementaire n'est un constat **que si** l'obligation concerne le périmètre du document. Un module d'affichage de catalogue n'a pas à traiter la lutte anti-blanchiment.
 - Si le secteur ou le pays est déduit et non confirmé, place les constats réglementaires dans les **constats conditionnels**.
 - Exception : le RGPD s'applique à toute organisation établie dans l'Union européenne. Si le document est manifestement français ou européen (langue, institutions, adresse), traite les manques RGPD comme des constats certains, pas conditionnels.
+- **Hors Union européenne**, cette liste ne s'applique pas telle quelle. Au Royaume-Uni, l'équivalent est le UK GDPR. Pour les autres pays (États-Unis, Canada, etc.), mentionne une obligation seulement si tu es certain qu'elle existe et qu'elle concerne le périmètre, et toujours en constat **conditionnel**. Un document rédigé en anglais n'est pas, à lui seul, un indice de pays : cherche des indices explicites (adresse, institutions, devise, lois citées).
 - Cite l'obligation par son nom usuel. Ne cite pas un numéro d'article précis si tu n'es pas certain qu'il est exact et à jour.
 - Cette liste est un aide-mémoire, pas un avis juridique. Elle doit être revue périodiquement par l'organisation qui l'utilise.
 

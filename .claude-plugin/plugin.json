@@ -1,16 +1,19 @@
 {
   "name": "ba-agent-relecture",
-  "displayName": "BA Agent — Relecture de specs",
-  "version": "1.0.2",
-  "description": "Relit vos user stories, spécifications fonctionnelles, use cases et cahiers des charges avant remise : constats sourcés, verdict reproductible et questions à poser au métier.",
+  "displayName": "BA Agent — Spec Review / Relecture de specs",
+  "version": "1.1.0",
+  "description": "Reviews user stories, functional specs, use cases and requirements documents before hand-off: evidence-based findings, a rule-based readiness verdict and questions for the business. English and French. / Relit vos specs avant remise : constats sourcés, verdict reproductible, questions au métier.",
   "author": {
     "name": "Serge Moufarrege"
   },
   "license": "CC-BY-NC-SA-4.0",
   "keywords": [
     "business-analysis",
+    "requirements",
     "specification",
     "user-story",
+    "spec-review",
+    "requirements-review",
     "cahier-des-charges",
     "revue-qualite"
   ],

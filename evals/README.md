@@ -9,8 +9,13 @@ Ce dossier n'est pas chargé par la skill. Il sert à vérifier que la skill tro
 | `01-user-story-notifications.md` | User Story | 7 | Non prêt |
 | `02-spec-remboursements.md` | Spécification fonctionnelle | 9 | Non prêt |
 | `03-cdc-portail-adherents.md` | Cahier des charges | 8 | Non prêt (À clarifier si le contexte n'est pas un appel d'offres) |
+| `04-en-spec-leave-requests.md` | Functional specification (English) | 9 | Not ready — rapport entièrement en anglais |
 
 Chaque document a un corrigé (`*-corrige.md`) : liste des défauts plantés, sévérité attendue, et **pièges** (ce qui ne doit pas être signalé).
+
+Pour le document 04, demandez la relecture en anglais (« Can you review this spec before I send it to the dev team? ») et vérifiez en plus que le rapport utilise les libellés anglais de `SKILL.md` et ne contient aucune phrase en français. Pour tester le changement de langue, relancez-le une fois avec une demande en français : le rapport doit alors être en français, avec les citations en anglais.
+
+*English: each document has an answer key listing planted defects, expected severity and traps. For document 04, ask in English and also check that the report uses the English labels and contains no French.*
 
 ## Protocole
 
@@ -35,6 +40,6 @@ Refais ce protocole après chaque modification de `SKILL.md` ou d'une grille. Aj
 
 ## Suivi
 
-| Date | Version modifiée | Doc 01 (détection / fausses alertes / verdict) | Doc 02 | Doc 03 | Remarques |
-|---|---|---|---|---|---|
-| | | | | | |
+| Date | Version modifiée | Doc 01 (détection / fausses alertes / verdict) | Doc 02 | Doc 03 | Doc 04 (EN) | Remarques |
+|---|---|---|---|---|---|---|
+| | | | | | | |
