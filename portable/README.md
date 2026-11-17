@@ -6,6 +6,8 @@ Use BA Agent in AI assistants that don't read Claude skills: **Microsoft 365 Cop
 
 Coding agents that support the open Agent Skills standard (Claude Code, OpenAI Codex, GitHub Copilot in VS Code, Gemini CLI, Cursor…) can use the skill folder `skills/relecture-spec-ba` directly instead.
 
+**[Download all files as a zip](https://github.com/sergemoufarrege/ba-agent-relecture/raw/main/download/ba-agent-portable.zip)**, unzip, then follow the steps below. Assistants don't import the zip itself: paste the instructions and upload the files one by one.
+
 ## What's in this folder
 
 | File | Where it goes |
@@ -50,6 +52,8 @@ Menus change often; labels below are indicative.
 Pour utiliser BA Agent dans des assistants qui ne lisent pas les skills Claude : **Microsoft 365 Copilot**, **ChatGPT** (GPT personnalisés), **Google Gemini** (Gems) et tout assistant qui accepte des instructions personnalisées et des fichiers de connaissance.
 
 Les agents de code compatibles avec le standard ouvert Agent Skills (Claude Code, OpenAI Codex, GitHub Copilot dans VS Code, Gemini CLI, Cursor…) peuvent utiliser directement le dossier `skills/relecture-spec-ba`.
+
+**[Téléchargez tous les fichiers en un zip](https://github.com/sergemoufarrege/ba-agent-relecture/raw/main/download/ba-agent-portable.zip)**, dézippez-le, puis suivez les étapes ci-dessous. Les assistants n'importent pas le zip lui-même : collez les instructions et téléversez les fichiers un par un.
 
 ### Contenu du dossier
 

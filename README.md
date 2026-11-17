@@ -28,7 +28,7 @@ The report is delivered as a document. If you provide a Word file and ask for it
 ### Other tools
 
 - **Coding agents that support the open Agent Skills standard** (OpenAI Codex, GitHub Copilot in VS Code, Gemini CLI, Cursor…): copy the `skills/relecture-spec-ba` folder into the tool's skills folder (often `.agents/skills/`; check your tool's documentation).
-- **Microsoft 365 Copilot, ChatGPT, Gemini**: use the [portable version](portable/): instructions to paste and knowledge files to upload, with setup steps.
+- **Microsoft 365 Copilot, ChatGPT, Gemini**: use the [portable version](portable/): instructions to paste and knowledge files to upload, with setup steps. [Download all files as a zip](https://github.com/sergemoufarrege/ba-agent-relecture/raw/main/download/ba-agent-portable.zip).
 
 ## Tailor it to your organisation
 
@@ -79,7 +79,7 @@ Le rapport est livré sous forme de document. Si vous fournissez un fichier Word
 #### Autres outils
 
 - **Agents de code compatibles avec le standard ouvert Agent Skills** (OpenAI Codex, GitHub Copilot dans VS Code, Gemini CLI, Cursor…) : copiez le dossier `skills/relecture-spec-ba` dans le dossier de skills de l'outil (souvent `.agents/skills/` ; vérifiez la documentation de votre outil).
-- **Microsoft 365 Copilot, ChatGPT, Gemini** : utilisez la [version portable](portable/), avec les instructions à coller, les fichiers de connaissance à téléverser et la procédure d'installation.
+- **Microsoft 365 Copilot, ChatGPT, Gemini** : utilisez la [version portable](portable/), avec les instructions à coller, les fichiers de connaissance à téléverser et la procédure d'installation. [Téléchargez tous les fichiers en un zip](https://github.com/sergemoufarrege/ba-agent-relecture/raw/main/download/ba-agent-portable.zip).
 
 ### Adapter à votre organisation
 
