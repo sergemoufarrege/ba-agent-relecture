@@ -22,7 +22,7 @@ The report is delivered as a document. If you provide a Word file and ask for it
 ## Installation
 
 - **Claude app**: add the plugin from the plugin directory by searching for "BA Agent".
-- **Skill only**: zip the `skills/relecture-spec-ba` folder and upload it in the app settings, Skills section.
+- **Skill only**: [download `relecture-spec-ba.zip`](https://github.com/sergemoufarrege/ba-agent-relecture/raw/main/download/relecture-spec-ba.zip) and upload it in the Claude app settings, Skills section. Then attach a spec and ask "review this spec".
 - **Claude Code**: clone this repository and run `claude --plugin-dir ./ba-agent-relecture`.
 
 ### Other tools
@@ -73,7 +73,7 @@ Le rapport est livré sous forme de document. Si vous fournissez un fichier Word
 ### Installation
 
 - **Dans l'app Claude** : ajoutez le plugin depuis le répertoire des plugins, en cherchant « BA Agent ».
-- **Skill seule** : zippez le dossier `skills/relecture-spec-ba` et importez-le dans les paramètres de l'app, section skills.
+- **Skill seule** : [téléchargez `relecture-spec-ba.zip`](https://github.com/sergemoufarrege/ba-agent-relecture/raw/main/download/relecture-spec-ba.zip) et importez-le dans les paramètres de l'app Claude, section Skills. Joignez ensuite une spec et demandez « relis cette spec ».
 - **Claude Code** : clonez ce dépôt et lancez `claude --plugin-dir ./ba-agent-relecture`.
 
 #### Autres outils
