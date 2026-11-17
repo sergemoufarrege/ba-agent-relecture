@@ -1,7 +1,7 @@
 {
   "name": "ba-agent-relecture",
   "displayName": "BA Agent — Spec Review / Relecture de specs",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Reviews user stories, functional specs, use cases and requirements documents before hand-off: evidence-based findings, a rule-based readiness verdict and questions for the business. English and French. / Relit vos specs avant remise : constats sourcés, verdict reproductible, questions au métier.",
   "author": {
     "name": "Serge Moufarrege"

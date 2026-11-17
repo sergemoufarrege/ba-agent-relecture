@@ -25,6 +25,11 @@ The report is delivered as a document. If you provide a Word file and ask for it
 - **Skill only**: zip the `skills/relecture-spec-ba` folder and upload it in the app settings, Skills section.
 - **Claude Code**: clone this repository and run `claude --plugin-dir ./ba-agent-relecture`.
 
+### Other tools
+
+- **Coding agents that support the open Agent Skills standard** (OpenAI Codex, GitHub Copilot in VS Code, Gemini CLI, Cursor…): copy the `skills/relecture-spec-ba` folder into the tool's skills folder (often `.agents/skills/`; check your tool's documentation).
+- **Microsoft 365 Copilot, ChatGPT, Gemini**: use the [portable version](portable/): instructions to paste and knowledge files to upload, with setup steps.
+
 ## Tailor it to your organisation
 
 - `skills/relecture-spec-ba/fiche-projet-modele.md`: project context (glossary, actors, systems, decisions), so you don't repeat it for every review.
@@ -70,6 +75,11 @@ Le rapport est livré sous forme de document. Si vous fournissez un fichier Word
 - **Dans l'app Claude** : ajoutez le plugin depuis le répertoire des plugins, en cherchant « BA Agent ».
 - **Skill seule** : zippez le dossier `skills/relecture-spec-ba` et importez-le dans les paramètres de l'app, section skills.
 - **Claude Code** : clonez ce dépôt et lancez `claude --plugin-dir ./ba-agent-relecture`.
+
+#### Autres outils
+
+- **Agents de code compatibles avec le standard ouvert Agent Skills** (OpenAI Codex, GitHub Copilot dans VS Code, Gemini CLI, Cursor…) : copiez le dossier `skills/relecture-spec-ba` dans le dossier de skills de l'outil (souvent `.agents/skills/` ; vérifiez la documentation de votre outil).
+- **Microsoft 365 Copilot, ChatGPT, Gemini** : utilisez la [version portable](portable/), avec les instructions à coller, les fichiers de connaissance à téléverser et la procédure d'installation.
 
 ### Adapter à votre organisation
 

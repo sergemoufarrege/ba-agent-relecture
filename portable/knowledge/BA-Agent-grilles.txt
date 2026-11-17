@@ -1,0 +1,351 @@
+BA AGENT — GRILLES DE RELECTURE / REVIEW CHECKLISTS
+Ce fichier regroupe : 1) contrôles transverses, 2) User Story, 3) Spécification fonctionnelle, 4) Use Case, 5) Cahier des charges, 6) points réglementaires. Les grilles sont en français et s'appliquent aussi aux documents en anglais.
+
+==================================================================
+
+# Contrôles transverses (tous types de documents)
+
+Ces points s'appliquent à tout document fonctionnel, en plus de la grille spécifique au type.
+
+| ID | Point de contrôle | Sévérité par défaut | Catégorie |
+|---|---|---|---|
+| TR-1 | Chaque terme métier important est défini, dans le document ou dans un glossaire référencé. | Majeur (Bloquant s'il conditionne une règle ou un calcul) | Ambiguïtés |
+| TR-2 | Aucun qualificatif non mesurable sur une exigence : « rapide », « intuitif », « simple », « temps réel », « sécurisé », « performant », « raisonnable », « si possible », « etc. ». | Majeur (Bloquant si l'exigence doit être testée à la recette) | Ambiguïtés |
+| TR-3 | Aucune mention « à définir », « TBD », « à confirmer », « en attente » sur un élément nécessaire à l'implémentation. | Bloquant si l'élément est nécessaire pour implémenter ou chiffrer, sinon Majeur | Manques |
+| TR-4 | Toute référence interne (RG-012, EF-04, §3.2, « voir annexe ») pointe vers un élément qui existe dans le document. | Majeur | Contradictions |
+| TR-5 | Aucune affirmation n'en contredit une autre : valeurs, seuils, statuts, acteurs, périmètre. | Bloquant si la contradiction porte sur un comportement attendu, sinon Majeur | Contradictions |
+| TR-6 | Les chiffres sont cohérents entre eux (totaux, seuils, durées, volumes). | Majeur | Contradictions |
+| TR-7 | Chaque acteur ou système qui agit est identifié ; les phrases au passif ne cachent pas l'acteur (« la demande est validée » : par qui ?). | Majeur | Ambiguïtés |
+| TR-8 | Chaque système externe cité (API, ERP, partenaire) a son rôle précisé : ce qu'on lui envoie, ce qu'on en reçoit. | Majeur | Manques |
+| TR-9 | Le comportement en cas d'échec d'un système externe est précisé, si le document en dépend. | Majeur | Cas non couverts |
+| TR-10 | Le traitement des données personnelles est évoqué si le document en collecte ou en affiche (finalité, conservation, droits). | Majeur (Bloquant pour des données de santé ou sensibles) — conditionnel seulement si rien n'indique que l'organisation est dans l'UE ou au Royaume-Uni (UK GDPR) | Manques |
+
+## Comment appliquer
+
+- TR-2 ne s'applique qu'aux **exigences** (ce que le système doit faire). Un qualificatif flou dans une phrase de contexte (« l'objectif est de rendre le parcours plus simple ») n'est pas un défaut si une exigence mesurable le traduit ailleurs.
+- Pour TR-4, cite la référence orpheline exactement : « RG-12 citée en RG-05, absente du document ».
+- Pour TR-5, cite **les deux** passages qui se contredisent.
+- Un même mot flou qui revient plusieurs fois donne **un seul** constat, qui liste les occurrences principales.
+
+==================================================================
+
+# Grille — User Story
+
+## Niveau d'exigence attendu
+
+Une user story est une **base de conversation**, pas une spécification. Format habituel : « En tant que [persona], je veux [objectif], afin de [valeur] » + 3 à 7 critères d'acceptation, soit 5 à 15 lignes.
+
+**Ne pas pénaliser** (absence normale dans une user story) :
+- les règles de gestion détaillées en IF/THEN ;
+- les types et formats de champs ;
+- la couverture exhaustive des cas limites ;
+- les choix techniques et d'architecture.
+
+Évalue la story sur sa capacité à entrer dans un sprint, selon INVEST.
+
+## Éléments structurels
+
+| Élément | Absent si… |
+|---|---|
+| Formule persona / objectif / valeur | Ni persona, ni objectif identifiables |
+| Critères d'acceptation | Aucun critère d'acceptation |
+
+## Points de contrôle
+
+| ID | INVEST | Point de contrôle | Sévérité par défaut |
+|---|---|---|---|
+| US-I1 | Indépendante | Les dépendances bloquantes (autre story, API, donnée non disponible) sont absentes ou explicitement identifiées. | Majeur (Bloquant si la dépendance empêche de démarrer) |
+| US-N1 | Négociable | Les critères décrivent un **résultat observable**, pas une implémentation (« via websocket », « composant React », « appel à /api/v2 »). | Mineur (Majeur si cela fige un choix contestable) |
+| US-V1 | Valable | Le persona est spécifique (« conseiller clientèle », « gestionnaire sinistres »), pas « utilisateur » générique. | Majeur |
+| US-V2 | Valable | L'objectif est explicite et compréhensible seul. | Bloquant |
+| US-V3 | Valable | La valeur métier (« afin de… ») est énoncée et n'est pas une reformulation de l'objectif. | Majeur |
+| US-E1 | Estimable | Aucun terme flou n'empêche l'estimation (« temps réel », « automatique », « intelligent »). | Bloquant si l'écart d'estimation est important, sinon Majeur |
+| US-E2 | Estimable | L'origine des données affichées ou calculées est connue (champ existant, calcul, système externe). | Majeur |
+| US-S1 | Petite | 3 à 7 critères d'acceptation. | 8–9 critères : Majeur ; 10 ou plus : Bloquant (épopée) |
+| US-S2 | Petite | Une seule fonctionnalité (pas « notifications in-app, email et SMS + préférences »). | Majeur (Bloquant si plusieurs fonctionnalités indépendantes) |
+| US-T1 | Testable | Chaque critère a un résultat observable et un critère de réussite clair. | Bloquant si aucun critère n'est testable ; Majeur par critère non testable |
+| US-T2 | Testable | Le cas vide ou d'erreur principal est couvert (aucun résultat, saisie invalide, droit insuffisant). | Mineur |
+
+## Règles spécifiques
+
+- Si US-S1 ou US-S2 échoue, ajoute dans les constats une **proposition de découpage** : 2 à 6 stories avec un titre, 3 à 5 critères chacune et la valeur apportée.
+- Les catégories de constats pour une user story : les termes flous vont en **Ambiguïtés**, les critères non testables en **Manques**, la taille excessive en **Manques**.
+- Questions au métier : 3 à 6 au maximum. Une story qui en appelle plus de 8 n'est pas prête.
+
+## Repères de calibration
+
+- **Bonne story** : « En tant qu'agent support, je veux consulter l'historique de commandes d'un client afin de répondre rapidement à ses questions. » 5 critères Given/When/Then, dont client sans commande et identifiant invalide. → Prêt, aucun constat au-delà de Mineur.
+- **Story correcte mais ambiguë** : tableau de bord commercial trié par probabilité de closing, « mis à jour en temps réel », score fourni par une API externe. → À clarifier : « temps réel » (US-E1) et origine du score (US-E2, US-I1).
+- **Épopée** : « système de notifications complet » avec 10 critères (in-app, email, SMS, préférences, historique, push…). → Non prêt, proposer un découpage.
+- **Story vide** : « En tant qu'utilisateur, je veux que le système soit mieux, afin que ce soit plus facile », critères « rapide », « moderne », « les utilisateurs aiment ». → Non prêt, réécriture complète.
+
+==================================================================
+
+# Grille — Spécification fonctionnelle
+
+## Niveau d'exigence attendu
+
+Une spécification fonctionnelle décrit **comment** une fonctionnalité ou un module se comporte, au niveau nécessaire pour développer et tester sans deviner. C'est le document le plus détaillé des quatre.
+
+**Ne pas pénaliser** :
+- l'absence de choix techniques (langage, framework, architecture) ;
+- l'absence de maquettes, si le comportement est décrit ;
+- l'absence de cas de test détaillés (ils relèvent du plan de test).
+
+## Éléments structurels
+
+| Élément | Absent si… |
+|---|---|
+| Règles de gestion identifiées (RG-001…) | Les règles ne sont qu'en texte narratif, sans identifiant |
+| Modèle de données | Aucune liste d'entités ou de champs |
+| Workflows / états | Aucun enchaînement d'étapes ou de statuts décrit |
+| Exigences fonctionnelles identifiées (EF-001…) | Aucune exigence numérotée |
+
+Un élément est **partiel** s'il existe mais de façon incomplète (ex. : règles numérotées pour moitié, champs listés sans types).
+
+## Points de contrôle
+
+### Périmètre
+| ID | Point de contrôle | Sévérité par défaut |
+|---|---|---|
+| SF-P1 | Le périmètre est défini : ce qui est inclus et ce qui est explicitement exclu. | Majeur |
+| SF-P2 | Le contexte métier et les acteurs sont identifiés. | Majeur |
+
+### Règles de gestion
+| ID | Point de contrôle | Sévérité par défaut |
+|---|---|---|
+| SF-RG1 | Chaque règle a un identifiant unique. | Majeur |
+| SF-RG2 | Chaque règle précise sa condition et son résultat (SI… ALORS…), sans « en général » ou « selon le cas ». | Bloquant |
+| SF-RG3 | Les formules et calculs sont exacts : opérandes, arrondis, unités, bornes. | Bloquant |
+| SF-RG4 | Les seuils et valeurs limites sont chiffrés, avec le traitement de la valeur exacte du seuil (≥ ou >). | Majeur |
+
+### Données
+| ID | Point de contrôle | Sévérité par défaut |
+|---|---|---|
+| SF-D1 | Chaque champ a un type, un format ou une liste de valeurs. | Majeur |
+| SF-D2 | Les champs obligatoires et facultatifs sont distingués. | Majeur |
+| SF-D3 | Les règles de validation de saisie sont précisées, avec le message en cas d'erreur. | Majeur |
+| SF-D4 | Les valeurs de statut sont identiques dans le modèle de données, les règles et les workflows. | Bloquant (Contradiction) |
+
+### Workflows et cas limites
+| ID | Point de contrôle | Sévérité par défaut |
+|---|---|---|
+| SF-W1 | Chaque transition d'état a un déclencheur et un acteur. | Majeur |
+| SF-W2 | Les transitions interdites ou les états finaux sont identifiables. | Mineur |
+| SF-W3 | Les cas d'erreur métier sont décrits (refus, données invalides, solde insuffisant…), avec le comportement attendu. | Bloquant si un cas fréquent est absent, sinon Majeur |
+| SF-W4 | Les accès concurrents et doubles soumissions sont traités quand ils sont plausibles (deux validateurs, double clic). | Majeur |
+| SF-W5 | Les délais, expirations et relances sont chiffrés. | Majeur |
+
+### Testabilité
+| ID | Point de contrôle | Sévérité par défaut |
+|---|---|---|
+| SF-T1 | Chaque exigence est vérifiable : un testeur peut écrire un cas de test sans poser de question. | Majeur par exigence ; Bloquant si la majorité ne l'est pas |
+| SF-T2 | Les exigences renvoient aux règles et aux données concernées (traçabilité). | Mineur |
+| SF-T3 | Les droits et habilitations par profil sont précisés. | Majeur |
+
+## Règles spécifiques
+
+- Une contradiction entre deux règles, ou entre une règle et un workflow, est le défaut le plus coûteux d'une spec : vérifie systématiquement les seuils, statuts et rôles qui apparaissent à plusieurs endroits.
+- Cas non couverts à chercher en priorité : valeurs aux bornes, concurrence, panne d'un système externe, données incomplètes ou en doublon, retour arrière dans un workflow, annulation.
+- Si la spec fait moins de quelques pages pour un module complexe, mentionne-le dans le verdict : c'est souvent un document de cadrage, pas une spec.
+
+## Repères de calibration
+
+- **Spec solide** : prêt personnel, 45 pages, 18 RG numérotées en SI/ALORS, modèle de données typé, machines à états, traçabilité EF→RG. → Prêt, constats Mineurs.
+- **Spec partielle** : gestion de factures, 12 RG dont 5 en narratif, types manquants sur certains champs, un workflow sur deux décrit. → À clarifier.
+- **Document de cadrage présenté comme spec** : portail client, 8 pages, règles vagues, liste de champs sans types, pas de workflow. → Non prêt.
+
+==================================================================
+
+# Grille — Use Case
+
+## Niveau d'exigence attendu
+
+Un use case décrit une **interaction complète** entre un acteur et le système : plus détaillé qu'une user story, moins qu'une spécification fonctionnelle. Il couvre comment l'interaction se déroule, ses variantes et ce qui peut mal tourner.
+
+**Ne pas pénaliser** :
+- l'absence de règles de gestion détaillées : une simple référence (RG-023) suffit ;
+- l'absence de modèle de données typé : les données échangées doivent être identifiées, pas typées ;
+- l'absence de maquettes.
+
+Repère de taille : un scénario nominal de 3 à 5 étapes sans variante est plutôt une user story ; au-delà de 50 étapes ou plusieurs fonctionnalités, il faut découper.
+
+## Éléments structurels
+
+| Élément | Absent si… |
+|---|---|
+| Objectif et acteur principal | Ni objectif ni acteur explicites |
+| Préconditions et postconditions | Aucune des deux |
+| Scénario nominal | Aucun scénario, ou moins de 5 étapes pour une interaction réelle |
+| Scénarios alternatifs | Aucune variante décrite |
+| Scénarios d'exception | Aucun cas d'erreur décrit |
+
+## Points de contrôle
+
+| ID | Point de contrôle | Sévérité par défaut |
+|---|---|---|
+| UC-A1 | Les acteurs secondaires (systèmes externes, autres rôles) sont identifiés. | Majeur |
+| UC-A2 | Le déclencheur du use case est explicite. | Majeur |
+| UC-A3 | Le périmètre est indiqué (ce que le use case ne couvre pas). | Mineur |
+| UC-C1 | Les préconditions sont vérifiables (« client connecté, compte actif », pas « le client a un compte »). | Majeur |
+| UC-C2 | Les postconditions sont décrites en cas de succès **et** en cas d'échec. | Majeur |
+| UC-F1 | Chaque étape est atomique : une seule action. | Mineur par étape ; Majeur si fréquent |
+| UC-F2 | Chaque étape système a un résultat observable (« affiche… », « crée la commande n°… »), pas « le système traite ». | Majeur |
+| UC-F3 | La numérotation est cohérente : 1, 2, 3 ; alternatives 3a, 3a.1 ; exceptions 4E, 4E.1. | Mineur |
+| UC-F4 | Chaque alternative ou exception a une condition de déclenchement, un point de départ et un point de retour (ou une fin explicite). | Bloquant si le point de retour manque, sinon Majeur |
+| UC-F5 | Les données saisies et restituées à chaque étape sont identifiées. | Majeur |
+| UC-F6 | Les règles de gestion utilisées sont référencées. | Mineur |
+| UC-E1 | Les pannes ou délais d'un système externe sont couverts. | Majeur |
+| UC-E2 | L'abandon par l'utilisateur et l'expiration de session sont traités quand c'est pertinent. | Mineur |
+
+## Contradictions fréquentes à vérifier
+
+- Une précondition est refaite dans le flux (« Pré : connecté » puis « 1. L'utilisateur se connecte »).
+- Une postcondition de succès est contredite par une exception qui annule l'opération après coup.
+- Deux alternatives ont des conditions qui se chevauchent sans règle de priorité.
+- Une étape utilise une donnée produite plus loin dans le flux.
+- Une alternative part d'une étape qui n'existe pas, ou une exception revient vers une étape ultérieure.
+- Une étape requiert un rôle qui n'est pas listé parmi les acteurs.
+
+## Repères de calibration
+
+- **Use case solide** : passage de commande, 21 étapes nominales, 5 alternatives et 4 exceptions avec points de retour, pré/postconditions de succès et d'échec, règles référencées. → Prêt.
+- **Use case partiel** : connexion client en 6 étapes, 1 alternative, 1 exception, préconditions vagues, étapes « valider » non observables. → À clarifier.
+- **Liste d'étapes** : « 1. Aller au panier 2. Saisir la livraison 3. Payer 4. Confirmation ». → Non prêt.
+
+==================================================================
+
+# Grille — Cahier des charges
+
+## Niveau d'exigence attendu
+
+Un cahier des charges dit **quoi** construire et **pourquoi**, pas **comment**. Il sert de base contractuelle ou de pilotage : consultation de prestataires, validation budgétaire, cadrage.
+
+**Ne pas pénaliser** :
+- l'absence de règles de gestion détaillées (IF/THEN), de formules ou de règles de validation de champs ;
+- l'absence de modèle de données typé ;
+- l'absence de workflows détaillés, de maquettes ou d'architecture technique ;
+- l'absence de cas limites applicatifs (« double clic », « erreur 404 ») : ils relèvent de la spécification.
+
+Les cas non couverts d'un cahier des charges sont **au niveau projet** : dépassement de capacité, reprise après sinistre, changement de périmètre, retard d'un fournisseur, refus de recette.
+
+## Éléments structurels
+
+| Élément | Absent si… |
+|---|---|
+| Périmètre (inclus / exclu) | Aucune délimitation du périmètre |
+| Objectifs métier mesurables | Aucun objectif, ou objectifs sans aucun indicateur |
+| Exigences fonctionnelles identifiées et priorisées | Pas de liste d'exigences identifiables |
+| Exigences non fonctionnelles | Aucune exigence de performance, sécurité ou disponibilité |
+
+Un élément est **partiel** si, par exemple, les inclusions sont listées mais pas les exclusions, ou si les exigences sont numérotées sans priorité.
+
+## Points de contrôle
+
+### Cadrage
+| ID | Point de contrôle | Sévérité par défaut |
+|---|---|---|
+| CDC-C1 | Les exclusions de périmètre sont explicites. | Majeur |
+| CDC-C2 | Chaque objectif a un indicateur et une cible (« réduire les appels de 30 % en 12 mois »). | Majeur |
+| CDC-C3 | Les parties prenantes et leurs rôles sont identifiés, dont qui valide. | Majeur |
+| CDC-C4 | Le budget et le calendrier sont indiqués. | **Bloquant** dans un appel d'offres, une consultation de prestataires ou toute mise en concurrence, ou avant validation budgétaire ; sinon Majeur (conditionnel si le contexte est inconnu) |
+
+### Exigences
+| ID | Point de contrôle | Sévérité par défaut |
+|---|---|---|
+| CDC-E1 | Chaque exigence a un identifiant unique. | Majeur |
+| CDC-E2 | Les exigences sont priorisées (MoSCoW, P1/P2/P3 ou équivalent). | Majeur |
+| CDC-E3 | Chaque exigence est vérifiable à la livraison (pas « interface conviviale »). | Majeur par exigence ; Bloquant si la majorité ne l'est pas |
+| CDC-E4 | Les exigences se rattachent aux objectifs. | Mineur |
+| CDC-E5 | Les intégrations avec les systèmes existants sont listées (quels systèmes, quels échanges). | Majeur |
+| CDC-E6 | Chaque élément inclus dans le périmètre est couvert par au moins une exigence. | Majeur (Bloquant si l'élément est un processus central du projet) |
+
+### Exigences non fonctionnelles et données
+| ID | Point de contrôle | Sévérité par défaut |
+|---|---|---|
+| CDC-N1 | La performance est chiffrée (temps de réponse, volumes, utilisateurs simultanés). | Majeur |
+| CDC-N2 | La disponibilité est chiffrée (taux, plages, RTO/RPO si critique). | Majeur |
+| CDC-N3 | Les exigences de sécurité sont précisées (authentification, habilitations, chiffrement, traçabilité). | Majeur |
+| CDC-N4 | Les données clés, leurs volumes et leur durée de conservation sont identifiés. | Majeur |
+| CDC-N5 | Les obligations de conformité applicables sont citées (RGPD, normes sectorielles). | Majeur — conditionnel si le secteur est inconnu |
+
+### Pilotage
+| ID | Point de contrôle | Sévérité par défaut |
+|---|---|---|
+| CDC-G1 | Les critères de recette du projet sont définis. | Majeur |
+| CDC-G2 | Les principaux risques sont identifiés, avec une mesure de mitigation. | Mineur |
+| CDC-G3 | Le processus de gestion des changements de périmètre est indiqué. | Mineur |
+| CDC-G4 | Les livrables attendus sont listés (documentation, formation, réversibilité). | Mineur (Majeur en appel d'offres ou consultation de prestataires) |
+
+## Contradictions fréquentes à vérifier
+
+- Un élément exclu du périmètre est requis par une exigence (mobile exclu, notifications push exigées).
+- Le budget ou le délai est manifestement incompatible avec le volume d'exigences. Signale-le comme **conditionnel** et sans chiffrer de coût de marché, sauf si le document fournit les éléments de comparaison.
+- Une exigence de disponibilité élevée sans aucune exigence de sauvegarde ou de reprise.
+- Une conformité annoncée (RGPD) sans les exigences qui la rendent possible (suppression, consentement, conservation).
+- Un validateur cité dans les critères de recette mais absent des parties prenantes.
+- Une exigence prioritaire qui dépend d'une exigence moins prioritaire.
+
+## Repères de calibration
+
+- **Cahier des charges solide** : plateforme e-commerce, objectifs chiffrés, inclusions et exclusions, 45 exigences numérotées en MoSCoW, exigences non fonctionnelles chiffrées, budget et calendrier, critères de recette, registre des risques. → Prêt.
+- **Partiel** : portail client, objectifs sans indicateurs, exclusions absentes, exigences numérotées pour moitié, performance « rapide ». → À clarifier ou Non prêt selon le nombre de bloquants.
+- **Liste de souhaits** : « interface conviviale, rapide, sécurisée, évolutive », budget « à définir », délai « au plus vite ». → Non prêt.
+
+==================================================================
+
+# Points d'attention réglementaires par secteur
+
+À utiliser seulement si le secteur est identifié (dans la fiche projet, par l'utilisateur ou clairement dans le document).
+
+## Règles d'usage
+
+- Un manque réglementaire n'est un constat **que si** l'obligation concerne le périmètre du document. Un module d'affichage de catalogue n'a pas à traiter la lutte anti-blanchiment.
+- Si le secteur ou le pays est déduit et non confirmé, place les constats réglementaires dans les **constats conditionnels**.
+- Exception : le RGPD s'applique à toute organisation établie dans l'Union européenne. Si le document est manifestement français ou européen (langue, institutions, adresse), traite les manques RGPD comme des constats certains, pas conditionnels.
+- **Hors Union européenne**, cette liste ne s'applique pas telle quelle. Au Royaume-Uni, l'équivalent est le UK GDPR. Pour les autres pays (États-Unis, Canada, etc.), mentionne une obligation seulement si tu es certain qu'elle existe et qu'elle concerne le périmètre, et toujours en constat **conditionnel**. Un document rédigé en anglais n'est pas, à lui seul, un indice de pays : cherche des indices explicites (adresse, institutions, devise, lois citées).
+- Cite l'obligation par son nom usuel. Ne cite pas un numéro d'article précis si tu n'es pas certain qu'il est exact et à jour.
+- Cette liste est un aide-mémoire, pas un avis juridique. Elle doit être revue périodiquement par l'organisation qui l'utilise.
+
+## Tous secteurs (Union européenne)
+
+- RGPD : base légale du traitement, finalité, durée de conservation, droits des personnes (accès, rectification, effacement), sous-traitants.
+- Accessibilité numérique pour les services concernés (RGAA en France pour le secteur public et certaines entreprises).
+- Cybersécurité : directive NIS2 pour les entités essentielles ou importantes.
+
+## Assurance
+
+- **France** : Code des assurances ; directive sur la distribution d'assurances (DDA) avec devoir de conseil documenté ; supervision de l'ACPR ; Solvabilité II si impact sur le capital réglementaire ; DORA pour la résilience opérationnelle numérique.
+- **Suisse** : loi sur la surveillance des assurances (LSA) ; LSFin/LEFin ; nouvelle loi sur la protection des données (nLPD) ; exigences de la FINMA.
+- **Belgique** : législation belge sur les assurances ; IDD ; supervision de la FSMA.
+
+## Banque et services financiers
+
+- **France** : DSP2 (authentification forte, accès aux comptes) ; lutte contre le blanchiment et le financement du terrorisme (LCB-FT) et connaissance client ; supervision de l'ACPR ; DORA.
+- **Suisse** : loi sur le blanchiment d'argent (LBA) ; LSFin/LEFin ; nLPD ; circulaires de la FINMA (identification à distance notamment).
+- **International** : recommandations du GAFI ; Bâle III/IV si impact prudentiel.
+
+## Fintech et établissements de paiement
+
+- Agrément d'établissement de paiement ou de monnaie électronique.
+- DSP2 et open banking (API d'accès aux comptes).
+- LCB-FT et connaissance client.
+
+## Santé
+
+- Hébergement de données de santé : certification HDS en France pour l'hébergeur.
+- RGPD, données de santé comme catégorie particulière (régime renforcé).
+- Secret médical et règles de partage entre professionnels.
+- Dispositifs médicaux : réglementation européenne si le logiciel a une finalité médicale.
+
+## Secteur public
+
+- RGAA (accessibilité).
+- Référentiel général de sécurité (RGS) et homologation de sécurité.
+- Règles de la commande publique si le document sert à une consultation.
+
+## SaaS et éditeurs de logiciels
+
+- RGPD : rôle de responsable de traitement ou de sous-traitant, clauses contractuelles.
+- Localisation des données si les clients sont dans un secteur régulé.
+- Exigences de sécurité attendues par les clients entreprises (ISO 27001, SOC 2) : à mentionner seulement si le document cible ce type de clients.
